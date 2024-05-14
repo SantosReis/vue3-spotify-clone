@@ -37,8 +37,37 @@ import artist from '../artist.json'
             <span class="-ml-0.5">{{ artist.tracks.length }} songs</span>
           </div>
         </div>
+
+        <div class="absolute flex gap-4 items-center justify-start bottom-0 mb-1.5">
+          <button class="p-1 rounded-full bg-white">
+            <Play v-if="!isPlaying" fillColor="#181818" :size="25" />
+            <Pause v-else fillColor="#181818" :size="25" />
+          </button>
+          <button type="button">
+            <Heart fillColor="#1BD760" :size="30" />
+          </button>
+          <button type="button">
+            <DotsHorizontal fillColor="#FFFFFF" :size="25" />
+          </button>
+        </div>
       </div>
     </div>
+
+    <div class="mt-6"></div>
+    <div class="flex items-center justify-between px-5 pt-2">
+      <div class="flex items-center justify-between text-gray-400">
+        <div class="mr-7">#</div>
+        <div class="text-sm">Title</div>
+      </div>
+      <div><ClockTimeThreeOutline fillColor="#FFFFFF" :size="18" /></div>
+    </div>
+    <div class="border-b border-b-[#2A2A2A] mt-2"></div>
+    <div class="mb-4"></div>
+    <ul class="w-full" v-for="(track, index) in artist.tracks" :key="track">
+      {{
+        track
+      }}
+    </ul>
   </div>
 </template>
 
